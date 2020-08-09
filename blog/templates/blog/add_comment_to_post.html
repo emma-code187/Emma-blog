@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+  <div class="container" style="margin-top: 60px; border-style: outset; max-width: 850px;">
+
+
+    <!-- START THE FEATURETTES -->
+    <h1><b>Leave a Reply</b></h1>
+   <!--<form method="POST" class="post-form">{% csrf_token %}
+      <div class="field"><p>
+	{{ form.name.errors }}
+   <label for="id_name">Name: </label>
+       <input type="text" id="id_name" class="form-control" value="" maxlength="30" name="name" required>
+   </p>
+	 </div>
+	
+	      <div class="field"><p>
+	{{ form.name.errors }}
+    <label for="id_email">Email:</label>
+     <input type="email" id="id_email" class="form-control" value="" maxlength="30" name="email" required>
+   </p>
+	 </div>
+	
+	 <p>
+           <label for="id_body">Body:</label>
+           <textarea id = "id_body" value="" name="body"
+                  rows = "10"
+                  cols = "63"></textarea>
+         </p>
+    <button type="submit" class="save btn btn-primary">Post Comment</button>
+        <a href="{% url 'blog-home' %}" class="btn btn-default" pull-right>Cancel</a>
+      </form>-->
+   
+
+    <form method="POST" class="post-form">{% csrf_token %}
+    <fieldset class="form-group">
+				<legend class="border-bottom mb-4">Blog Post</legend>
+				{{ form | crispy }}
+			</fieldset>
+    <button type="submit" class="save btn btn-primary">Post Comment</button>
+     <a href="{% url 'blog-home' %}" class="btn btn-default" pull-right>Cancel</a>
+    </form>
+
+  
+    <!-- /END THE FEATURETTES -->
+  <br>
+  </div><!-- /.container -->
+  <br>
+  {% endblock %}
